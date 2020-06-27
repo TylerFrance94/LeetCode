@@ -1,0 +1,13 @@
+public class Solution {
+    public bool IsPalindrome(int x) {
+        string Pal = x.ToString();
+        int j = Pal.Length - 1;
+        for(int i = 0; i < Pal.Length/2; i++)
+        {
+            if (Pal[i] != Pal[j])
+                return false;
+            j--;
+        }
+        return true;
+    }
+}
