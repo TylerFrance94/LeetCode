@@ -1,0 +1,22 @@
+public class Solution {
+    public int Reverse(int x) {
+        string rev = string.Empty;
+        bool bZero = true;
+        if(x < 0)
+        {
+            x *= -1;
+            rev += "-";
+        }
+        string strX = x.ToString();
+        for(int i = strX.Length-1; i > -1; i--)
+        {
+            if(!(strX[i] == '0' && bZero))
+            {
+                rev += strX[i];
+                bZero = false;
+            }
+        }
+        Int32.TryParse(rev, out int ret);
+        return ret;
+    }
+}
