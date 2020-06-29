@@ -1,0 +1,36 @@
+public class Solution {
+    public int RomanToInt(string s) {
+                  Dictionary<char, int> Romans = new Dictionary<char, int>();
+            Romans.Add('I', 1);
+            Romans.Add('V', 5);
+            Romans.Add('X', 10);
+            Romans.Add('L', 50);
+            Romans.Add('C', 100);
+            Romans.Add('D', 500);
+            Romans.Add('M', 1000);
+
+            int RomInt = 0;
+
+            for(int i = 0; i < s.Length; i++)
+            {
+                if (Romans.TryGetValue(s[i], out int Rom))
+                {
+                    int Rom2 = 0;
+                    if (i < s.Length -1)
+                    {
+                        Romans.TryGetValue(s[i + 1], out Rom2);
+                    }
+                    else { Rom2 = 0; }
+                    if (Rom < Rom2)
+                    {
+                        RomInt -= Rom;
+                    }
+                    else
+                    {
+                        RomInt += Rom;
+                    }
+                }
+            }
+        return RomInt;
+    }
+}
